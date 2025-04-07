@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero Section with Navbar</title>
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+   
+
+  <!-- Contact Info Header -->
+  <header class="contact-header">
+    <div class="contact-info">
+        <span>📞 Call Us: +91721848853</span>
+        <span>📧 Email: makeiot@pune.com</span>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="Make_IoT__3_-removebg-preview.png" alt="Logo">
+      </div>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a  href="#courses">Courses</a></li>
+        <li><a href="#placement">Events</a></li>
+        <li><a href="#internship">Internship</a></li>
+        <li><a href="#about-us">About Us</a></li>
+
+    </ul>
+    </nav>
+
+  </header>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+  <style>
+      /* Basic Styles */
+      .callback-form {
+          display: none;
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: white;
+          padding: 20px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          border-radius: 10px;
+          width: 300px;
+      }
+      .callback-form h2 {
+          margin-top: 0;
+      }
+      .callback-form input {
+          width: 100%;
+          padding: 10px;
+          margin: 5px 0;
+      }
+      .callback-form button {
+          padding: 10px;
+          width: 100%;
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          cursor: pointer;
+      }
+      .callback-form button:hover {
+          background-color: #45a049;
+      }
+      .close-btn {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          font-size: 25px;
+          cursor: pointer;
+      }
+  </style>
+</head>
+<body>
+
+  <!-- Callback Button -->
+  <button id="callbackBtn">📞 Request a Callback</button>
+
+  <!-- Callback Form (Initially Hidden) -->
+  <div class="callback-form" id="callbackForm">
+      <span class="close-btn" id="closeForm">&times;</span>
+      <h2>Request a Callback</h2>
+      <form id="callbackFormData" action="https://formsubmit.co/hagawaneshweta2805@gmail.com"  method="post">
+          <label for="name">Name:</label>
+          <input type="text" name="name" id="name" placeholder="Enter your name" required>
+
+          <label for="contact">Contact No:</label>
+          <input type="tel" name="contact_number" id="contact_number" placeholder="Enter your contact number" required>
+
+          <label for="email">Email:</label>
+          <input type="email" name="email" id="email" placeholder="Enter your email" required>
+
+          <button type="submit">Submit</button>
+      </form>
+  </div>
+
+  <script>
+      // Data array to store callback form submissions
+      let callbackData = JSON.parse(localStorage.getItem('callbackData')) || [];
+
+      // Show the form when the callback button is clicked
+      document.getElementById("callbackBtn").addEventListener("click", function() {
+          document.getElementById("callbackForm").style.display = "block";
+      });
+
+      // Close the form when the close button is clicked
+      document.getElementById("closeForm").addEventListener("click", function() {
+          document.getElementById("callbackForm").style.display = "none";
+      });
+
+      // Handle form submission
+      document.getElementById("callbackFormData").addEventListener("submit", function(event) {
+          event.preventDefault(); // Prevent form from submitting the usual way
+
+          // Get the form data
+          const name = document.getElementById("name").value;
+          const contactNumber = document.getElementById("contact_number").value;
+          const email = document.getElementById("email").value;
+
+          // Add new data to the array
+          callbackData.push({ Name: name, Contact: contactNumber, Email: email });
+
+          // Save the data to localStorage to persist across page reloads
+          localStorage.setItem('callbackData', JSON.stringify(callbackData));
+
+          // Hide the form after submission
+          document.getElementById("callbackForm").style.display = "none";
+
+          // Reset the form
+          document.getElementById("callbackFormData").reset();
+
+          // Optionally alert the user that the form was submitted
+          alert("Your request has been submitted!");
+      });
+
+     
+</script>
+
+
+
+
+
+
+      <section class="hero" id="hero">
+          <div class="hero-content">
+              <h1>Get Your Dream Job in Embedded Systems & Automation</h1>
+              <p>At MakeIoT, we specialize in job-focused training in Embedded Systems, IoT, PLC & SCADA, and AI-ML.</p>
+              <button class="btnfree" onclick="openVideo()">Free Demo</button>
+       
+       
+            </div>
+          
+    <script>
+        function openVideo() {
+            window.open("https://www.youtube.com/watch?v=cLqSwkYFclo", "_blank");
+        }
+    </script>
+      </section>
+  
+
+
+
+
+      <section class="courses" id="courses">
+        <h2>Explore Top Courses</h2>
+        <div class="course-container">
+            <div class="course">
+               <img src="2.png" alt="Embeddedsystem">
+                <h3>Embedded system</h3>
+                <p>BUILD Hands-on STM32 PROJECTS.</p>
+                <a href="90 Days Embedded Mastry Course.pdf"   target="_blank"  onclick="openPDF()"  download="90 Days Embedded Mastry Course.pdf" background color:yellow>Learn More</a>
+               
+            </div>
+            <div class="course">
+               <img src="3.png" alt="IOT"> 
+                <h3>IOT</h3>
+                <p>Basic Understanding of IOT and explore industrial project.</p>
+     <button1><a href="90 Days Embedded Mastry Course.pdf"  target="_blank"  onclick="openPDF()"  download="90 Days Embedded Mastry Course.pdf">Learn More </a> </button1>
+            </div>
+            <div class="course">
+                <img src="4.png" alt="IOT"> 
+               <!-- <img src="https://source.unsplash.com/400x250/?computer,technology" alt="Computer Science"> -->
+                <h3>Python</h3>
+                <p>Learn coding, AI, and data science with professionals.</p>
+                <a href="#" class="course-btn">Learn More</a>
+            </div>
+            <div class="course">
+               <!-- <img src="https://source.unsplash.com/400x250/?computer,technology" alt="Computer Science"> -->
+                <h3>Arduino</h3>
+                <p>Learn Arduino with professionals and build hands on practicals.</p>
+                <a href="#" class="course-btn" >Learn More</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="placement" id="placement">
+        <h2>Our Placed Students</h2>
+        <div class="placement-container">
+            <img src="Rohit.png" alt="Student 1">
+            <img src="Placement Poster Template renuka.png" alt="Student 2">
+            <img src="Placement Poster Template  (2).png" alt="Student 3">
+            <img src="Placement Poster Template  (3).png" alt="Student 4">
+            <img src="Placement Poster Template  (4).png" alt="Student 5">
+            <img src="Placement Poster Template  (5).png" alt="Student 6">
+            <img src="Placement Poster Template  (6).png" alt="Student 7">
+            <img src="Placement Poster Template  (7).png" alt="Student 8">
+            <img src="Placement Poster Template  (8).png" alt="Student 9">
+            <img src="Placement Poster Template  (9).png"alt="Student 10">
+            <img src="Placement Poster Template  (10).png" alt="Student 11">
+            <img src="Placement Poster Template  (11).png" alt="Student 12">
+            <img src="Placement Poster Template  (12).png" alt="Student 13">
+            <img src="Placement Poster Template  (13).png" alt="Student 14">
+            <img src="Placement Poster Template  (14).png" alt="Student 15">
+            <img src="Placement Poster Template  (15).png" alt="Student 16">
+            <img src="Placement Poster Template  (16).png"alt="Student 17">
+            <img src="Placement Poster Template .png" alt="Student 18">
+            <img src="Placement Poster Template  (1).png" alt="Student 19">
+        </div>
+    </section>
+
+    <section class="about-us"  id="about-us">
+        <div class="container">
+          <h2>About Us</h2>
+          <p>Welcome to <strong>MakeIOT</strong>, With Make IoT, build a strong and successful career in the core Electronics and Electrical domain.
+            With our affordable and engaging courses in Embedded Systems, IoT, PLC, and SCADA  you can grab your first job within just 60 days!.</p>
+          
+          <div class="mission">
+            <h3>Our Mission</h3>
+            <p>Our mission is to make learning an enjoyable and effective experience. We focus on holistic development and strive to create a strong foundation in both subjects and life skills. Through personalized attention and innovative teaching methods, we ensure that every student thrives.</p>
+          </div>
+     
+         <div class="team">
+            <h3>Meet Our Educators</h3>
+            <div class="team-member">
+              <img src="omkar.jpg" alt="Teacher 1">
+              <h4>Mr. Rahul Sharma</h4>
+              <p>Founder & Head Mentor</p>
+              <p>With over 10 years of experience in teaching, Mr. Rahul has helped hundreds of students achieve their academic goals. His teaching approach focuses on clarity, depth, and critical thinking.</p>
+            </div>
+            <div class="team-member">
+              <img src="cho.jpg" alt="Teacher 2">
+              <h4>Ms. Priya Gupta</h4>
+              <p>Maths Expert</p>
+              <p>Ms. Priya is known for her unique methods of making complex math concepts simple and fun. She inspires students to develop a love for the subject while building a strong conceptual foundation.</p>
+            </div>
+            <div class="team-member">
+              <img src="shweta.jpg" alt="Teacher 3">
+              <h4>Mr. Arun Verma</h4>
+              <p>Science Mentor</p>
+              <p>Mr. Arun’s approach is hands-on, using real-life examples to teach science. His passion for the subject and teaching methodology helps
+      
+
+
+
+<script>
+    // Initialize Swiper
+    var swiper = new Swiper('.swiper-container', {
+        loop: true,              // Enable looping of slides
+        autoplay: {
+            delay: 3000,           // Slide interval in ms
+            disableOnInteraction: false,  // Allow autoplay to continue even after interaction
+        },
+        pagination: {
+            el: '.swiper-pagination',  // Pagination dots
+            clickable: true,           // Allow clicking on dots to navigate
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',  // Next button
+            prevEl: '.swiper-button-prev',  // Previous button
+        },
+        effect: 'fade',              // Optional: Add fade effect between slides
+        speed: 800,                  // Transition speed
+    });
+</script>
+
+
+
+
+<footer class="footer">
+    <div class="container">
+      <div class="footer-info">
+        <h3>Achieve Coaching Academy</h3>
+        <p>Providing quality education to help students excel academically and personally.</p>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about-us">About Us</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#privacy-policy">Privacy Policy</a></li>
+          <li><a href="#terms">Terms of Service</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i> 123 Learning Street, Education City</li>
+          <li><i class="fas fa-phone-alt"></i> +123 456 7890</li>
+          <li><i class="fas fa-envelope"></i> contact@achieveacademy.com</li>
+        </ul>
+      </div>
+      
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <ul>
+          <li><a href="https://facebook.com/achieveacademy" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="https://twitter.com/achieveacademy" target="_blank"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="https://instagram.com/achieveacademy" target="_blank"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="https://linkedin.com/company/achieveacademy" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p>&copy; 2025 Achieve Coaching Academy. All rights reserved.</p>
+    </div>
+  </footer>
+  
+
+
+</body>
+</html>
